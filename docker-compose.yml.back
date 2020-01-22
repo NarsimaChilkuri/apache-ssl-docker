@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+  web:
+    image: httpd:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./server.key:/usr/local/apache2/conf/server.key
+      - ./server.crt:/usr/local/apache2/conf/server.crt
+
